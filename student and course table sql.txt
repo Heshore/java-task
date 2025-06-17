@@ -1,0 +1,91 @@
+mysql> show databases;
++--------------------+
+| Database           |
++--------------------+
+| employee           |
+| hospital           |
+| information_schema |
+| learner            |
+| mysql              |
+| performance_schema |
+| phpmyadmin         |
+| student            |
+| studentdata        |
+| studentdatas       |
+| studentdetails     |
+| students           |
+| test               |
++--------------------+
+13 rows in set (0.00 sec)
+
+mysql> create database studentinformation;
+Query OK, 1 row affected (0.00 sec)
+
+mysql> use studentinformation;
+Database changed
+mysql> create table studentinformation(
+    -> rollno int,
+    -> name varchar(20),
+    -> subject varchar(30),
+    -> department varchar(40));
+Query OK, 0 rows affected (0.01 sec)
+
+mysql> insert into studentinformation values(01,'ramesh','science','computerscience');
+Query OK, 1 row affected (0.00 sec)
+
+mysql> insert into studentinformation values(02,'kalai','maths','computerscience');
+Query OK, 1 row affected (0.00 sec)
+
+mysql> insert into studentinformation values(03,'karthi','tamil','computerscience');
+Query OK, 1 row affected (0.00 sec)
+
+mysql> insert into studentinformation values(04,'vijay','social','computerscience');
+Query OK, 1 row affected (0.00 sec)
+
+mysql> insert into studentinformation values(05,'vishal','english','computerscience');
+Query OK, 1 row affected (0.00 sec)
+
+mysql> select * from studentinformation;
++--------+--------+---------+-----------------+
+| rollno | name   | subject | department      |
++--------+--------+---------+-----------------+
+|      1 | ramesh | science | computerscience |
+|      2 | kalai  | maths   | computerscience |
+|      3 | karthi | tamil   | computerscience |
+|      4 | vijay  | social  | computerscience |
+|      5 | vishal | english | computerscience |
++--------+--------+---------+-----------------+
+5 rows in set (0.00 sec)
+
+mysql> create table course(
+    -> rollno int,
+    -> name varchar(20),
+    -> coursename varchar(30));
+Query OK, 0 rows affected (0.01 sec)
+
+mysql> insert into course values(1,'ramesh','java');
+Query OK, 1 row affected (0.00 sec)
+
+mysql> insert into course values(2,'kalai','javascript');
+Query OK, 1 row affected (0.00 sec)
+
+mysql> insert into course values(3,'karthi','python');
+Query OK, 1 row affected (0.00 sec)
+
+mysql> insert into course values(4,'vijay','linux');
+Query OK, 1 row affected (0.00 sec)
+
+mysql> insert into course values(5,'vishal','c++');
+Query OK, 1 row affected (0.00 sec)
+
+mysql> select * from course;
++--------+--------+------------+
+| rollno | name   | coursename |
++--------+--------+------------+
+|      1 | ramesh | java       |
+|      2 | kalai  | javascript |
+|      3 | karthi | python     |
+|      4 | vijay  | linux      |
+|      5 | vishal | c++        |
++--------+--------+------------+
+5 rows in set (0.00 sec)
