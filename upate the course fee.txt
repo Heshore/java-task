@@ -1,0 +1,85 @@
+mysql> alter table course add coursefee varchar(30);
+Query OK, 0 rows affected (0.01 sec)
+Records: 0  Duplicates: 0  Warnings: 0
+
+mysql> update course set coursefee=1000 where coursename='java';
+Query OK, 1 row affected (0.00 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+mysql> select * from course;
++--------+--------+------------+-----------+
+| rollno | name   | coursename | coursefee |
++--------+--------+------------+-----------+
+|      1 | ramesh | java       | 1000      |
+|      2 | kalai  | javascript | NULL      |
+|      3 | karthi | python     | NULL      |
+|      4 | vijay  | linux      | NULL      |
+|      5 | vishal | c++        | NULL      |
++--------+--------+------------+-----------+
+5 rows in set (0.00 sec)
+
+mysql> update course set coursefee=2000 where course='javascript';
+ERROR 1054 (42S22): Unknown column 'course' in 'where clause'
+mysql> update course set coursefee=20000 where coursename='javascript';
+Query OK, 1 row affected (0.00 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+mysql> select * from course;
++--------+--------+------------+-----------+
+| rollno | name   | coursename | coursefee |
++--------+--------+------------+-----------+
+|      1 | ramesh | java       | 1000      |
+|      2 | kalai  | javascript | 20000     |
+|      3 | karthi | python     | NULL      |
+|      4 | vijay  | linux      | NULL      |
+|      5 | vishal | c++        | NULL      |
++--------+--------+------------+-----------+
+5 rows in set (0.00 sec)
+
+mysql> update course set coursefee=3000 where coursename='python';
+Query OK, 1 row affected (0.00 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+mysql> select * from course;
++--------+--------+------------+-----------+
+| rollno | name   | coursename | coursefee |
++--------+--------+------------+-----------+
+|      1 | ramesh | java       | 1000      |
+|      2 | kalai  | javascript | 20000     |
+|      3 | karthi | python     | 3000      |
+|      4 | vijay  | linux      | NULL      |
+|      5 | vishal | c++        | NULL      |
++--------+--------+------------+-----------+
+5 rows in set (0.00 sec)
+
+mysql> update course set coursefee=40000 where coursename='linux';
+Query OK, 1 row affected (0.00 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+mysql> update course set coursefee=50000 where coursename='c++';
+Query OK, 1 row affected (0.00 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+mysql> select * from course;
++--------+--------+------------+-----------+
+| rollno | name   | coursename | coursefee |
++--------+--------+------------+-----------+
+|      1 | ramesh | java       | 1000      |
+|      2 | kalai  | javascript | 20000     |
+|      3 | karthi | python     | 3000      |
+|      4 | vijay  | linux      | 40000     |
+|      5 | vishal | c++        | 50000     |
++--------+--------+------------+-----------+
+5 rows in set (0.00 sec)
+
+mysql> select * from course order by coursename desc;
++--------+--------+------------+-----------+
+| rollno | name   | coursename | coursefee |
++--------+--------+------------+-----------+
+|      3 | karthi | python     | 3000      |
+|      4 | vijay  | linux      | 40000     |
+|      2 | kalai  | javascript | 20000     |
+|      1 | ramesh | java       | 1000      |
+|      5 | vishal | c++        | 50000     |
++--------+--------+------------+-----------+
+5 rows in set (0.00 sec)
